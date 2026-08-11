@@ -26,8 +26,7 @@ void saida() {
 	pausa();
 }
 
-// Procedimentos para c�lculos
-
+// Procedimentos para calculos
 void adicao() {
 	cout << "-----------------------" << endl;
 	cout << " Operacao de Adicao" << endl;
@@ -35,6 +34,35 @@ void adicao() {
 	entrada();
 	R = A + B;
 	saida();
+}
+void subtracao() {
+	cout << "-----------------------" << endl;
+	cout << " Operacao de Subtracao" << endl;
+	cout << "-----------------------" << endl;
+	entrada();
+	R = A - B;
+	saida();
+}
+void multiplicacao() {
+	cout << "-----------------------" << endl;
+	cout << " Operacao de Multiplicacao" << endl;
+	cout << "-----------------------" << endl;
+	entrada();
+	R = A * B;
+	saida();
+}
+void divisao() {
+	cout << "-----------------------" << endl;
+	cout << " Operacao de Divisao" << endl;
+	cout << "-----------------------" << endl;
+	entrada();
+	if(B == 0) {
+		cout << "Nao e possivel dividir por 0" << endl;
+		pausa();
+	} else {
+		R = A / B;
+		saida();
+	}
 }
 
 void Menu() {
@@ -45,7 +73,11 @@ void Menu() {
 	cout << "\n ---------------------";
 	cout << endl;
 	cout << "[1] - Adicao" << endl;
-	cout << "[2] - Encerrar Programa" << endl;
+	cout << "[2] - Subtracao" << endl;
+	cout << "[3] - Multiplicacao" << endl;
+	cout << "[4] - Divisao" << endl;
+	cout << "[5] - Encerrar Programa" << endl;
+	cout << "- Digite aqui: ";
 	cin >> opcao;
 }
 
@@ -54,13 +86,22 @@ int main(int argc, char** argv) {
     setlocale(LC_ALL, "Portuguese");
 	opcao = 0;
 	
-	while(opcao != 2) {
+	while(opcao != 5) {
 		Menu();
-		if (opcao != 2) {
+		if (opcao != 5) {
 			limpatela();
 			switch (opcao){
 				case 1:
 					adicao();
+					break;
+				case 2:
+					subtracao();
+					break;
+				case 3:
+					multiplicacao();
+					break;
+				case 4:
+					divisao();
 					break;
 			}
 		}
